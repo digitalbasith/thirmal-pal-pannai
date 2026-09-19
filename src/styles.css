@@ -754,3 +754,26 @@ input,select,button{max-width:100%}
     grid-auto-columns:82%;
   }
 }
+
+
+/* V5.8 — desktop uses compact grid; carousel only tablet/mobile */
+@media(min-width:1025px){
+  .billing-popup .product-carousel{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    grid-auto-flow:row;
+    grid-auto-columns:auto;
+    max-height:270px;
+    overflow-x:hidden;
+    overflow-y:auto;
+    scroll-snap-type:none;
+    padding:2px 4px 8px 2px;
+  }
+  .billing-popup .product-carousel .product-card{
+    width:100%;
+    height:112px;
+    min-height:112px;
+    scroll-snap-align:none;
+  }
+  .carousel-controls{display:none}
+}
