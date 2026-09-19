@@ -78,7 +78,7 @@ function Billing({products,customers,reload,go}:{products:Product[];customers:Cu
     <p>{checkoutStage==='processing'?'Creating sale and validating item quantities…':checkoutStage==='stock'?'Sale completed. Updating latest stock balances…':`${money(savedTotal)} bill completed and stock has been updated.`}</p>
    </div>
    <div className="checkout-steps">
-    <div className={checkoutStage!=='idle'?'done':''}><span>{checkoutStage==='processing'?<LoaderCircle className="spin"/>:<CheckCircle2/>}</span><b>Bill</b><small>Sale entry</small></div>
+    <div className="done"><span>{checkoutStage==='processing'?<LoaderCircle className="spin"/>:<CheckCircle2/>}</span><b>Bill</b><small>Sale entry</small></div>
     <i className={checkoutStage==='stock'||checkoutStage==='saved'?'done':''}/>
     <div className={checkoutStage==='stock'||checkoutStage==='saved'?'done':''}><span>{checkoutStage==='stock'?<LoaderCircle className="spin"/>:<Database/>}</span><b>Stock</b><small>Inventory update</small></div>
     <i className={checkoutStage==='saved'?'done':''}/>
