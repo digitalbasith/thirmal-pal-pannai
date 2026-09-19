@@ -3,7 +3,12 @@ name: Build Check
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'BUILD_LOG.txt'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -13,5 +18,33 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install
-      - run: npm run build
+      - name: Install and build
+        shell: bash
+        run: |
+          set +e
+          : > BUILD_LOG.txt
+          npm install >> BUILD_LOG.txt 2>&1
+          install_status=$?
+          if [ "$install_status" -eq 0 ]; then
+            npm run build >> BUILD_LOG.txt 2>&1
+            build_status=$?
+          else
+            build_status=$install_status
+          fi
+          cat BUILD_LOG.txt
+          echo "$build_status" > BUILD_STATUS.txt
+      - name: Save build log
+        if: always()
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add BUILD_LOG.txt
+          git diff --cached --quiet || git commit -m "Update build log"
+          git push
+      - name: Fail if build failed
+        if: always()
+        shell: bash
+        run: |
+          status=$(cat BUILD_STATUS.txt)
+          exit "$status"
