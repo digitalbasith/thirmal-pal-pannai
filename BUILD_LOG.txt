@@ -1,5 +1,5 @@
 
-added 87 packages, and audited 88 packages in 10s
+added 87 packages, and audited 88 packages in 9s
 
 9 packages are looking for funding
   run `npm fund` for details
@@ -20,11 +20,11 @@ transforming...
 rendering chunks...
 computing gzip size...
 [2mdist/[22m[32mindex.html                 [39m[1m[2m  0.40 kB[22m[1m[22m[2m │ gzip:   0.28 kB[22m
-[2mdist/[22m[2massets/[22m[35mindex-DC8doZuP.css  [39m[1m[2m 44.44 kB[22m[1m[22m[2m │ gzip:   9.32 kB[22m
-[2mdist/[22m[2massets/[22m[36mindex-CZH8L2P3.js   [39m[1m[33m940.35 kB[39m[22m[2m │ gzip: 286.54 kB[22m
+[2mdist/[22m[2massets/[22m[35mindex-DbkSkrGR.css  [39m[1m[2m 46.88 kB[22m[1m[22m[2m │ gzip:   9.74 kB[22m
+[2mdist/[22m[2massets/[22m[36mindex-DBxFP5PK.js   [39m[1m[33m941.27 kB[39m[22m[2m │ gzip: 286.72 kB[22m
 [33m
 (!) Some chunks are larger than 500 kB after minification. Consider:
 - Using dynamic import() to code-split the application
 - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
-[32m✓ built in 3.86s[39m
+[32m✓ built in 3.87s[39m
