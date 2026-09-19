@@ -1,0 +1,17 @@
+
+added 87 packages, and audited 88 packages in 8s
+
+9 packages are looking for funding
+  run `npm fund` for details
+
+1 high severity vulnerability
+
+Some issues need review, and may require choosing
+a different dependency.
+
+Run `npm audit` for details.
+
+> thirumal-paal-pannai-pro@5.4.1 build
+> tsc -b && vite build
+
+src/App.tsx(81,21): error TS2367: This comparison appears to be unintentional because the types '"stock" | "processing" | "saved"' and '"idle"' have no overlap.
