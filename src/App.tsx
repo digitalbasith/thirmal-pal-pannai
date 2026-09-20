@@ -94,7 +94,7 @@ function Billing({products,customers,reload,go}:{products:Product[];customers:Cu
    setSavedSaleId(data as string);setCheckoutStage('stock');
    await new Promise(r=>setTimeout(r,650));
    await reload(true);
-   setCart([]);setCustomer('');setMobile('');setDiscount('0');setPayment('cash');setServiceMode('parcel');localStorage.removeItem('thirumal-billing-draft');
+   setCart([]);setCustomer('');setMobile('');setDiscount('0');setPayment('cash');localStorage.removeItem('thirumal-billing-draft');
    setCheckoutStage('saved');setBusy(false);
  };
  return <>
