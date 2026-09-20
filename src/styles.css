@@ -801,3 +801,127 @@ input,select,button{max-width:100%}
   }
   .carousel-controls{display:none}
 }
+
+
+/* V5.10 — inline user creation + permission table */
+.users-manager{overflow:hidden}
+.user-add-row{
+  border:1px solid var(--primary-border);
+  background:var(--primary-soft);
+  border-radius:15px;
+  padding:14px;
+  margin:12px 0 16px;
+}
+.user-add-title{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.add-avatar{background:#fff;border:1px solid var(--primary-border);color:var(--primary)}
+.user-add-title b{display:block;font-size:13px}
+.user-add-title span{display:block;font-size:10px;color:var(--muted);margin-top:2px}
+.user-add-fields{
+  display:grid;
+  grid-template-columns:1.2fr 1.4fr 1.2fr .9fr .9fr;
+  gap:9px;
+  align-items:end;
+}
+.user-add-fields .field{margin:0}
+.user-add-fields input,.user-add-fields select{background:#fff}
+.user-permission-editor{min-width:0}
+.permission-title{display:block;font-size:9px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#68766e;margin:12px 0 7px}
+.add-permissions{grid-template-columns:repeat(6,minmax(0,1fr))}
+.add-permissions label{background:#fff}
+.user-add-action{display:flex;justify-content:flex-end;margin-top:11px}
+.user-add-action .btn{min-width:150px}
+
+.user-table-head{
+  display:grid;
+  grid-template-columns:1.3fr .85fr .72fr .58fr 2.1fr;
+  gap:10px;
+  padding:0 12px 7px;
+  color:#7a8780;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.user-management-list{display:grid;gap:9px}
+.user-manage-row{
+  display:grid;
+  grid-template-columns:1.3fr .85fr .72fr .58fr 2.1fr;
+  gap:10px;
+  align-items:center;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:14px;
+  padding:11px 12px;
+}
+.user-manage-row.self{background:#fbfdfc;border-color:var(--primary-border)}
+.user-identity{display:flex;align-items:center;gap:9px;min-width:0}
+.user-identity>div:last-child{min-width:0}
+.user-identity h3{font-size:12px;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.user-identity span{display:block;font-size:9px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px}
+.user-identity small{display:inline-block;margin-top:4px;padding:2px 6px;border-radius:999px;background:var(--primary-soft);color:var(--primary);font-size:8px;font-weight:900}
+.user-branch select,.user-role select{font-size:11px;padding:8px 28px 8px 9px}
+.user-branch>span{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:800;color:#516158}
+.user-active{display:flex;align-items:center;gap:7px}
+.user-active>span{font-size:9px;color:var(--muted)}
+.user-manage-row .permission-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:6px;
+}
+.user-manage-row .permission-grid label{
+  min-width:0;
+  font-size:9px;
+  padding:7px 8px;
+  background:#f8fbf9;
+  border:1px solid #e4eee8;
+  border-radius:9px;
+}
+.user-manage-row .permission-grid input{width:auto}
+
+@media(max-width:1100px){
+  .user-add-fields{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .add-permissions{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .user-table-head{display:none}
+  .user-manage-row{
+    grid-template-columns:1.3fr .9fr .8fr .65fr;
+  }
+  .user-manage-row>.user-permission-editor{grid-column:1/-1;border-top:1px solid #edf2ef;padding-top:9px}
+  .user-manage-row .permission-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+
+@media(max-width:760px){
+  .users-manager{padding:12px}
+  .user-add-row{padding:12px;margin-top:8px}
+  .user-add-title{align-items:flex-start}
+  .user-add-fields{grid-template-columns:1fr}
+  .add-permissions{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .user-add-action .btn{width:100%}
+  .user-manage-row{
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+    padding:12px;
+  }
+  .user-identity{grid-column:1/-1;padding-bottom:4px}
+  .user-branch,.user-role{min-width:0}
+  .user-branch::before,.user-role::before,.user-active::before{
+    display:block;
+    font-size:8px;
+    font-weight:900;
+    color:#7a8780;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    margin-bottom:4px;
+  }
+  .user-branch::before{content:"Branch"}
+  .user-role::before{content:"Role"}
+  .user-active::before{content:"Active"}
+  .user-active{display:block}
+  .user-active .switch{display:inline-flex;margin-right:7px}
+  .user-manage-row>.user-permission-editor{grid-column:1/-1}
+  .user-manage-row .permission-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media(max-width:380px){
+  .add-permissions,.user-manage-row .permission-grid{grid-template-columns:1fr}
+  .user-manage-row{grid-template-columns:1fr}
+  .user-identity,.user-manage-row>.user-permission-editor{grid-column:1}
+}
